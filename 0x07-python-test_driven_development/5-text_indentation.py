@@ -38,4 +38,4 @@ def text_indentation(text):
             print()
             return
 
-    print("\n\n".join(new_list), end=''
+    print("\n\n".join(new_list), end='')
