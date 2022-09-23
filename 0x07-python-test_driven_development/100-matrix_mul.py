@@ -65,4 +65,4 @@ def matrix_mul(m_a, m_b):
             flag = 1
         result_list.append(inner_list)  # multiplied matrix(2D List)
 
-    return 
+    return result_list
