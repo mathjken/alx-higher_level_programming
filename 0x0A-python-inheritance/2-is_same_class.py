@@ -1,19 +1,16 @@
 #!/usr/bin/python3
 """
-This is a module container of the function 2-is_same_class
+Module 1-my_list
+Contains class MyList
+inherits from list; has public instance method to print sorted
 """
 
 
-def is_same_class(obj, a_class):
+class MyList(list):
+    """inherits from list
+    methods:
+    print_sorted(self)
     """
-    To check if the object is exactly an instance of the specified class
-        Args:
-            obj: initial object
-            a_class: class to confirm with the object
-            Returns: True if object is an exactly the instance of the class
-                     or False if not
-    """
-    if type(obj) is not a_class:
-        return False
-    else:
-        return True
+    def print_sorted(self):
+        """prints list of ints all sorted in ascending order"""
+        print(sorted(self))
