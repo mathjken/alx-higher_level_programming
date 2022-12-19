@@ -1,26 +1,17 @@
 #!/usr/bin/python3
 """
-given letter as param, POST to http://0.0.0.0:5000/search_user
-usage: ./8-json_api.py [letter only]
+Takes in a URL, sends a request to the URL and displays the body of
+the response (decoded in utf-8).
 """
-from sys import argv
-import requests
 
+import requests
+from sys import argv
 
 if __name__ == "__main__":
-    if len(argv) < 2:
-        letter = ""
+    url = argv[1]
+    r = requests.get(url)
+    status = r.status_code
+    if status >= 400:
+        print("Error code: {}".format(r.status_code))
     else:
-        letter = argv[1]
-    url = 'http://0.0.0.0:5000/search_user'
-    payload = {'q': letter}
-    r = requests.post(url, data=payload)
-
-    try:
-        dic = r.json()
-        if dic:
-            print("[{}] {}".format(dic.get('id'), dic.get('name')))
-        else:
-            print("No result")
-    except ValueError as e:
-        print("Not a valid JSON")
+        print(r.text)
